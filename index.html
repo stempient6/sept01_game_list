@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+	width:100%;
+	height: 100%;
+}
+
+ul{
+	margin:0 auto;
+}
+
+li{
+	width:530px;
+	height: auto;
+	font-size: 40px;
+	border:1px solid black;
+	border-radius: 10px;
+	list-style: none;
+	text-align: center;
+	margin:2px auto;
+	&:first-child{
+		background-color: lightgray;
+		
+	}
+}
+button {
+	font-size: 16px;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+</style>
+</head>
+<body>
+<script>
+/*put your javascript here*/
+
+document.write('<ul><li onclick="newGame()"><button>Add A Game</button></li><li onclick="getIndex(this)">Chess</li><li onclick="getIndex(this)">Poker</li><li onclick="getIndex(this)">Monopoly</li><li onclick="getIndex(this)">Scrabble</li></ul>');
+
+function newGame() {
+	ngame=prompt("Enter the Name");
+    document.getElementsByTagName('ul')[0].innerHTML = document.getElementsByTagName('ul')[0].innerHTML + '<li onclick="getIndex(this)">'+ngame+"</li>";
+    //alert(document.getElementsByTagName('ul')[0].length);
+
+};
+
+function removeGame() {
+	ngame=prompt("name");
+    document.getElementsByTagName('ul')[0].innerHTML = document.getElementsByTagName('ul')[0].innerHTML.replace('<li onclick="getIndex(this)">' + ngame+"</li>", '');
+    
+};
+
+
+function delparent(e){
+	
+    e.parentNode.parentNode.removeChild(e.parentNode);
+
+}
+
+
+function getIndex(node) {
+ var childs = node.parentNode.childNodes;
+ for (i = 0; i < childs.length; i++) {
+   if (node == childs[i]) {
+    	var liList =document.body.getElementsByTagName('ul')[0].children;
+ // liList[i].remove(liList[i]);
+ if (liList[i].children.length == 0){
+liList[i].innerHTML = liList[i].innerHTML + '<div onclick="delparent(this)"><button>Remove</button></div>';}
+   }
+ }
+
+ 
+
+ return i;
+}
+	</script>
+</body>
+</html>
