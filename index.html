@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+	h2 {
+		font-size: 40px;
+		margin: 5px 0 -10px 0;
+	}
 	body{
 	width:100%;
 	height: 100%;
@@ -38,7 +42,7 @@ button {
 <script>
 /*put your javascript here*/
 
-document.write('<ul><li onclick="newGame()"><button>Add A Game</button></li><li onclick="getIndex(this)">Chess</li><li onclick="getIndex(this)">Poker</li><li onclick="getIndex(this)">Monopoly</li><li onclick="getIndex(this)">Scrabble</li></ul>');
+document.write('<ul><li onclick="newGame()"><h2>Our Games</h2><button>Add A Game</button></li><li onclick="getIndex(this)">Chess</li><li onclick="getIndex(this)">Poker</li><li onclick="getIndex(this)">Monopoly</li><li onclick="getIndex(this)">Scrabble</li></ul>');
 
 function newGame() {
 	ngame=prompt("Enter the Name");
